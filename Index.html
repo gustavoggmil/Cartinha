@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Perguntas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #quiz-container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h2>Perguntas</h2>
+        <label for="question1">Qual é a sua idade?</label>
+        <select id="question1">
+            <option value="">Selecione a opção</option>
+            <option value="18">A - 18 anos</option>
+            <option value="19">B - 19 anos</option>
+        </select>
+
+        <label for="question2">Qual anime mais te deixou triste?</label>
+        <select id="question2">
+            <option value="">Selecione a opção</option>
+            <option value="darling">A - Darling in the Franxx</option>
+            <option value="akame">B - Akame Ga Kill</option>
+        </select>
+
+        <button onclick="verificarRespostas()">Verificar Respostas</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function verificarRespostas() {
+            var resposta1 = document.getElementById("question1").value;
+            var resposta2 = document.getElementById("question2").value;
+
+            if (resposta1 === "19" && resposta2 === "akame") {
+                exibirMensagem();
+            } else {
+                document.getElementById("result").innerText = "Ops! Pelo menos uma resposta está incorreta.";
+                document.getElementById("result").style.color = "red";
+                document.getElementById("result").style.display = "block";
+            }
+        }
+
+        function exibirMensagem() {
+            var mensagem = "É uma citação do poeta francês Paul Valéry: \"Amor é ser estúpidos juntos\", e ser estúpidos juntos significa que essa pessoa faz você sorrir, faz você rir, ela te faz sentir que pode sentir uma alegria abundante. É como se você pudesse ser o seu eu mais infantil, sua guarda está baixa, você se sente seguro. É como Dr. Seuss escreveu: 'Você sabe que é amor quando encontra alguém cuja esquisitice é compatível com a sua, e quando você cai nessa esquisitice conjunta, você chama de amor. Encontrar a sua pessoa é encontrar alguém que permite que você seja o seu eu mais autêntico. Amor é ser estúpidos juntos.\"";
+
+            document.getElementById("result").innerText = mensagem;
+            document.getElementById("result").style.color = "green";
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>
